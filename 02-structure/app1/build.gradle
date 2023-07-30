@@ -1,0 +1,6 @@
+
+tasks.register('compile') {
+    doFirst {
+        println "App 1"
+    }
+}

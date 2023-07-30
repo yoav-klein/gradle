@@ -1,0 +1,16 @@
+
+println 'This is executed during the configuration phase.'
+
+tasks.register('compile') {
+    doFirst {
+        println "Compiling"
+    }
+}
+
+tasks.register('test') {
+    dependsOn tasks.compile
+    doFirst {
+        println "Testing"
+    }
+}
+

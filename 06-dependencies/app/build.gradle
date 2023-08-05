@@ -1,0 +1,14 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+dependencies {
+    implementation project(':http-client-wrapper')
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'yoav.App'
+}

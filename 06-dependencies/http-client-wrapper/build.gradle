@@ -1,0 +1,10 @@
+
+plugins {
+    id 'java-library'
+}
+
+dependencies {
+    implementation project(':tcp-client')
+    api project(':http-client')
+}
+

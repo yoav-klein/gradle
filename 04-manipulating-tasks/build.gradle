@@ -1,0 +1,15 @@
+
+println 'This is executed during the configuration phase.'
+
+tasks.register('compile') {
+    doFirst {
+        println "Compiling"
+    }
+}
+
+tasks.named('compile') {
+    doFirst {
+        println "Pre-compiling"
+    }
+}
+

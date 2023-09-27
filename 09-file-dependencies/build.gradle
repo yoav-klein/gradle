@@ -1,0 +1,16 @@
+
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation files('lib/Person.jar')
+//    implementation name: 'Person'
+//    add('implementation', [name: 'Person'])
+}
+
+application {
+    mainClass = "Test"
+}
+
+

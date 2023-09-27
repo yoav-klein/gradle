@@ -1,0 +1,20 @@
+
+plugins {
+    id 'application'
+}
+
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+    implementation name: 'Person'
+}
+
+application {
+    mainClass = "Test"
+}
+
+

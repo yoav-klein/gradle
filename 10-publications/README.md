@@ -1,15 +1,17 @@
-# Dependencies
+# Publications
 ---
 
-This multi-project demonstrates how to use dependencies in Gradle projects.
+This builds on the `06-dependencies` example. But here, instead of using project dependencies
+to define the dependencies between the subprojects, we publish each library individually to a repository,
+and consume them from there.
 
-We have the following structure: The `app` project is an application - a consumer - 
-which uses the `http-client-wrapper` library, which is another project.
+So each project is a standalone project - no `settings.gradle` in the root directory.
 
-The `http-client-wrapper` uses 2 libraries: `http-client` and `tcp-client`, but in different ways.
-The constructor of HttpClientWrapper takes an instance of HttpClient, so the consumer (app) needs 
-to create an instance of HttpClient - in other words, it needs to know the HttpClient class. So
-the `http-client` dependency of `http-client-wrapper` is of type `api`.
+The projects `tcp-client`, `http-client` and `http-client-wrapper` all publish to a Maven repository,
+which in this case is a local filesystem repository (for convenience).
 
-However, the use in `tcp-client` is done internally, so the app project need not be exposed to it.
-In other words, it is an _implemenation_ dependency, so it's part of the `implementation` configuration.
+Additionally, the `http-client-wrapper`, which consumes `tcp-client` and `http-client`, defines this
+location as a repository, so it can consume from there.
+
+Then, the `app` project consumes all the dependencies from this repository also.
+

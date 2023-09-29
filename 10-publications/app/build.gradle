@@ -1,0 +1,20 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    maven {
+        url '/home/cloud_user/repo'
+    }
+}
+
+dependencies {
+    implementation 'com.yoav:http-client-wrapper:1.12'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'yoav.App'
+}

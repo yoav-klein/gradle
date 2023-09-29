@@ -1,0 +1,38 @@
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+repositories {
+    maven {
+        url '/home/cloud_user/repo'
+    }
+}
+
+dependencies {
+    implementation 'com.yoav:tcp-client:1.2'
+    api 'com.yoav:http-client:1.2'
+}
+
+group = 'com.yoav'
+version = '1.12'
+
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'myRepo'
+            url = layout.buildDirectory.dir("/home/cloud_user/repo")
+        }
+    }
+}
+
+
+

@@ -1,0 +1,41 @@
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "com.jfrog.artifactory" version "5.+"
+}
+
+group = 'com.yoav'
+version = '1.2'
+
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+String jfrogPlatformUrl = "http://ec2-52-87-176-86.compute-1.amazonaws.com:8081"
+String repoKey = "libs-snapshot-local"
+String artifactoryUser = "admin"
+String artifactoryPass = "YoavKlein3"
+
+artifactory {
+    contextUrl = "${jfrogPlatformUrl}/artifactory"
+    publish {
+        repository {
+            repoKey = repoKey
+            username = artifactoryUser
+            password = artifactoryPass
+        }
+
+        defaults {
+            publications('myLibrary')
+        }
+    }
+}
+
+
+

@@ -19,6 +19,7 @@ publishing {
 
 
 String jfrogPlatformUrl = "http://ec2-54-173-185-207.compute-1.amazonaws.com:8081"
+// if this variable is called repoKey - it doesn't work
 String repoName = "yoav"
 String artifactoryUser = "admin"
 String artifactoryPass = "YoavKlein3"

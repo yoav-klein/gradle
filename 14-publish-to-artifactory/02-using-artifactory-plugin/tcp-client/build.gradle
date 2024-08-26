@@ -1,0 +1,46 @@
+
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "com.jfrog.artifactory" version "5.+"
+}
+
+group = 'com.yoav'
+version = '1.3'
+
+
+publishing {
+    publications {
+        myLibrary(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+
+String jfrogPlatformUrl = "http://ec2-34-238-27-77.compute-1.amazonaws.com:8081"
+// if this variable is called repoKey - it doesn't work
+String repoName = "myapp"
+String artifactoryUser = "admin"
+String artifactoryPass = "YoavKlein3"
+
+artifactory {
+    publish {
+        contextUrl = "${jfrogPlatformUrl}/artifactory"
+        repository {
+            repoKey = repoName
+            username = artifactoryUser
+            password = artifactoryPass
+        }
+
+        // Include all configured publications for all the modules
+        defaults {
+            publications('myLibrary')
+            publishArtifacts = true
+        }
+    }
+}
+
+
+
+

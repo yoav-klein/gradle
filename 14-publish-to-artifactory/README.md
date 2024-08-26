@@ -1,10 +1,7 @@
 # Publish to Artifactory
 ---
 
-In this example, we use the `tcp-client` library example to deploy this package to Artifactory.
+Publishing to Artifactory can be done in 2 ways:
+1. Simple - use the regular `publications` blocks, and define Artifactory in the `repositories` as a Maven repository.
+2. Using the Artifactory Plugin
 
-We use the artifactory plugin. Basically the configuration bits we need is:
-* The Artifactory URL
-* Username
-* Password
-* Repository key

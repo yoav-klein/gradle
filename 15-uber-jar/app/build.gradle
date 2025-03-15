@@ -43,17 +43,13 @@ tasks.named('test') {
 }
 
 
-tasks.register('show', Copy) {
-    println configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }
-
-}
-
 
 tasks.register('uberJar', Jar) {
     archiveClassifier = 'uber'
 
     from sourceSets.main.output
-
+    from "foo/bar.txt" // just to understand how it works. so the from method can take many types of arguments.
+    // if you provide a string, it's interpreted as a file path relative to the project root direcotry
     dependsOn configurations.runtimeClasspath
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }

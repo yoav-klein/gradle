@@ -15,14 +15,25 @@ publishing {
             from components.java
         }
     }
+
+    repositories {
+        maven {
+            allowInsecureProtocol = true
+            url = "http://ec2-34-238-27-77.compute-1.amazonaws.com:8082/artifactory/myapp/"
+            credentials {
+                username = "admin"
+                password = "YoavKlein3"
+            }
+        }
+    }
 }
 
 
-String jfrogPlatformUrl = "http://ec2-34-207-108-181.compute-1.amazonaws.com:8082/"
+String jfrogPlatformUrl = "http://ec2-34-238-27-77.compute-1.amazonaws.com:8081"
 // if this variable is called repoKey - it doesn't work
-String repoName = "gradle-dev-local"
+String repoName = "myapp"
 String artifactoryUser = "admin"
-String artifactoryPass = "Yoavklein1"
+String artifactoryPass = "YoavKlein3"
 
 artifactory {
     publish {

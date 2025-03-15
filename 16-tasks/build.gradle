@@ -5,6 +5,9 @@
  * To learn more about Gradle by exploring our Samples at https://docs.gradle.org/8.7/samples
  */
 
+plugins {
+    id 'war'
+}
 
 /* registering a task of no specific type */
 tasks.register('hello') {
@@ -40,3 +43,4 @@ abstract class HelloTask extends DefaultTask {
 }
 
 tasks.register('myhello', HelloTask)
+

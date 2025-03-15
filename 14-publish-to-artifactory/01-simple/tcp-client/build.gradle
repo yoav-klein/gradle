@@ -6,8 +6,9 @@ plugins {
 }
 
 group = 'com.yoav'
-version = '2.3'
+version = '3.3'
 
+String artifactoryRepo = "gradle-dev-local"
 
 publishing {
     publications {
@@ -19,39 +20,13 @@ publishing {
     repositories {
         maven {
             allowInsecureProtocol = true
-            url = "http://ec2-34-238-27-77.compute-1.amazonaws.com:8082/artifactory/myapp/"
+            url = "http://ec2-34-207-108-181.compute-1.amazonaws.com:8082/artifactory/${artifactoryRepo}/"
             credentials {
                 username = "admin"
-                password = "YoavKlein3"
+                password = "Yoavklein1"
             }
         }
     }
 }
-
-
-String jfrogPlatformUrl = "http://ec2-34-238-27-77.compute-1.amazonaws.com:8081"
-// if this variable is called repoKey - it doesn't work
-String repoName = "myapp"
-String artifactoryUser = "admin"
-String artifactoryPass = "YoavKlein3"
-
-artifactory {
-    publish {
-        contextUrl = "${jfrogPlatformUrl}/artifactory"
-        repository {
-            repoKey = repoName
-            username = artifactoryUser
-            password = artifactoryPass
-        }
-
-        // Include all configured publications for all the modules
-        defaults {
-            publications('myLibrary')
-            publishArtifacts = true
-        }
-    }
-}
-
-
 
 

@@ -1,0 +1,18 @@
+
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation 'com.yoav:http-client-wrapper:1.12'
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'yoav.App'
+}
